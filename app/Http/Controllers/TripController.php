@@ -16,6 +16,7 @@ class TripController extends Controller
     public function index()
     {
         //
+        return view('trips.index', Trip::all());
     }
 
     /**
