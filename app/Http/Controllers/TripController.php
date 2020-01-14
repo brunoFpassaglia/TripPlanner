@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTripRequest;
 use App\Trip;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,11 @@ class TripController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTripRequest $request)
     {
         //
+        $data = $request->validated();
+        auth()->user()->ownsTrip()->create($data);
     }
 
     /**
