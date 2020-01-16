@@ -22,6 +22,7 @@
                     
                 </div>           
             </div>
+            <a href="{{ route('trips.create') }}" class="btn btn-secondary my-2">Add trip</a>
         </div>
     </div>
 </div>
