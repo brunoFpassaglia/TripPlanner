@@ -19,6 +19,6 @@ class Trip extends Model
     * relationship with creators on user table
     */
     public function creator(){
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

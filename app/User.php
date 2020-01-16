@@ -40,7 +40,7 @@ class User extends Authenticatable
     /**
      * relationship with trips, by owning them 
      */
-    public function ownsTrips(){
-        return $this->hasMany(Trip::class);
+    public function ownsTrip(){
+        return $this->hasMany(Trip::class, 'creator_id');
     }
 }
