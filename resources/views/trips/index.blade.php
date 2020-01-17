@@ -14,6 +14,7 @@
                     @foreach ($trips as $trip)
                     <div class="card-header">
                         {{ $trip->title }}
+                        <a href="{{ route('trips.show', $trip) }}"> Show trip</a>
                     </div>
                     <div class="card-body">
                         {{ $trip->description }}

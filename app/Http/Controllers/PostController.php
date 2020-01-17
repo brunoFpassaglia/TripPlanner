@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Trip;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,9 +13,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Trip $trip)
     {
         //
+        $posts = Trip::find($trip->id)->posts;
     }
 
     /**
@@ -25,6 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -35,7 +38,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+         //
+
+
     }
 
     /**
