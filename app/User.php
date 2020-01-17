@@ -43,4 +43,12 @@ class User extends Authenticatable
     public function ownsTrip(){
         return $this->hasMany(Trip::class, 'creator_id');
     }
+    
+    
+    /**
+     * relationship with posts
+     */
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }

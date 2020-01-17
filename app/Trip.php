@@ -21,4 +21,11 @@ class Trip extends Model
     public function creator(){
         return $this->belongsToMany(User::class);
     }
+
+    /**
+     * relationship with posts
+     */
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }
