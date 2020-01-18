@@ -19,7 +19,7 @@ class Trip extends Model
     * relationship with creators on user table
     */
     public function creator(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -27,5 +27,9 @@ class Trip extends Model
      */
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'trip_user', 'trip_id', 'user_id');
     }
 }

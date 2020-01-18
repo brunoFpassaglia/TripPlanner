@@ -21,6 +21,7 @@ class CreateTripsTable extends Migration
             $table->foreign('creator_id')->references('id')->on('users');
             $table->string('title');
             $table->string('description');
+            $table->boolean('is_public');
             $table->timestamps();
         });
     }
