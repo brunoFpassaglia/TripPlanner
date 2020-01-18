@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Http\Requests\StoreCommentRequest;
 use App\Post;
+use App\Trip;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -34,18 +36,18 @@ class CommentController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request, Post $post)
+    public function store(StoreCommentRequest $request, $post)
     {
         //
         $data = $request->validated();
-        
-        auth()->user()->comments()->create(
-            [
-                'content' => $data['content'],
-                'post_id' => $post->id,
-                ]
-            );
-            return redirect(route('post.show', $post->id));
+        // dd($request['post']);
+         auth()->user()->comments()->create(
+             [
+                 'content' => $data['content'],
+                 'post_id' => $post,
+                 ]
+             );
+             return redirect(route('trips.show', Post::find($post)->trip));
             
         }
         
