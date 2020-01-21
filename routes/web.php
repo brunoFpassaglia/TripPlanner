@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return redirect(route('home'));
 });
@@ -21,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('trips', 'TripController');
 Route::resource('trips/{trip}/posts', 'PostController');
 Route::resource('trips/{trip}/posts/{post}/comments', 'CommentController');
+Route::get('users/{user}', 'UserController@show')->name('profile');
+Route::get('users/{user}/edit', 'UserController@edit')->middleware('editpage')->name('edit_profile');
