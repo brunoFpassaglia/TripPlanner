@@ -72,6 +72,14 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $data = $request->all();
+        $update = $user->update($data);
+        if($update){
+            return redirect()->route('home');
+        }
+        else{
+            return redirect()->route('users.edit', $user);
+        }
     }
 
     /**

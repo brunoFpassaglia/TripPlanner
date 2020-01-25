@@ -30,6 +30,6 @@ class Trip extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class, 'trip_user', 'trip_id', 'user_id');
+        return $this->belongsToMany(User::class, 'trip_user', 'trip_id', 'user_id')->withTimestamps();
     }
 }

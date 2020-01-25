@@ -57,6 +57,6 @@ class User extends Authenticatable
     }
 
     public function trips(){
-        return $this->belongsToMany(Trip::class, 'trip_user', 'user_id', 'trip_id');
+        return $this->belongsToMany(Trip::class, 'trip_user', 'user_id', 'trip_id')->withTimestamps();
     }
 }

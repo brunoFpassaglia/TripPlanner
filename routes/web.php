@@ -21,7 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('trips', 'TripController');
-Route::resource('trips/{trip}/posts', 'PostController');
-Route::resource('trips/{trip}/posts/{post}/comments', 'CommentController');
+Route::resource('trips.posts', 'PostController');
+Route::resource('trips.posts.comments', 'CommentController');
 Route::get('users/{user}', 'UserController@show')->name('profile');
 Route::get('users/{user}/edit', 'UserController@edit')->middleware('editpage')->name('edit_profile');
+Route::put('users/{user}', 'UserController@update')->name('users.update');
