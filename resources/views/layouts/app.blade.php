@@ -23,6 +23,7 @@
     
 </head>
 <body>
+    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -77,7 +78,28 @@
         
         <main class="py-4">
             @include('layouts.errors')
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    @auth
+                    <div class="col-md-2">
+                        <nav class="sidebar">
+                            @include('layouts.sidebar')
+                        </nav>
+                    </div>
+                    <div class="col-md-1">
+                        
+                    </div>
+                    <div class="col-md-9">
+                            @yield('content')
+                    </div>
+                    @endauth
+                    @guest
+                    <div class="col-md-12">
+                            @yield('content')
+                    </div>   
+                    @endguest
+                </div>
+            </div>
         </main>
     </div>
     @yield('scripts')
