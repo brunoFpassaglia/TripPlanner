@@ -32,4 +32,12 @@ class Trip extends Model
     public function users(){
         return $this->belongsToMany(User::class, 'trip_user', 'trip_id', 'user_id')->withTimestamps();
     }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublicTrips($query){
+        return $query->where('is_public', true);
+    }
 }

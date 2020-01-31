@@ -77,7 +77,6 @@
         </nav>
         
         <main class="py-4">
-            @include('layouts.errors')
             <div class="container">
                 <div class="row">
                     @auth
@@ -90,12 +89,13 @@
                         
                     </div>
                     <div class="col-md-9">
-                            @yield('content')
+                        @include('layouts.errors')
+                        @yield('content')
                     </div>
                     @endauth
                     @guest
                     <div class="col-md-12">
-                            @yield('content')
+                        @yield('content')
                     </div>   
                     @endguest
                 </div>

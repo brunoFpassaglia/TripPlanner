@@ -1,5 +1,5 @@
 <a href="{{asset(Auth::user()->avatar) }}" target="_blank">
-    <div class="avatar">
+    <div class="avatar zoom">
         <img src="{{ asset(Auth::user()->avatar) }}" alt="">
     </div>
 </a>
@@ -8,20 +8,20 @@
 
 
 <div class="subnav">
-    <a>Browse trips</a>
+    <a class="zoom">Browse trips</a>
     <div class="subnav-content">
-        <a href="#bring">Personal Trips</a>
-        <a href="#deliver">Public Trips</a>
-        <a href="#package">Invitations</a>
+        <a class="zoom" href="{{ route('trips.personal_trips') }}">Personal Trips</a>
+        <a class="zoom" href="{{ route('trips.index') }}">Public Trips</a>
+        <a class="zoom" href="#package">Invitations</a>
     </div>
 </div>
-<a href="{{ route('profile', Auth::user()) }}">
+<a class="zoom" href="{{ route('profile', Auth::user()) }}">
     My Page
 </a>
-<a href="">
+<a class="zoom" href="">
     Account
 </a>
-<a class="dropdown-item" href="{{ route('logout') }}"
+<a class="zoom" class="dropdown-item" href="{{ route('logout') }}"
 onclick="event.preventDefault();
 document.getElementById('logout-form').submit();">
 {{ __('Logout') }}</a>

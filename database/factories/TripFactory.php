@@ -12,8 +12,8 @@ $factory->define(Trip::class, function (Faker $faker) {
         'begin_date' => $faker->dateTimeBetween('now', '+6 days'),
         'end_date' => $faker->dateTimeBetween('+7 days', '+14 days'),
         'creator_id'=>$faker->randomElement($users),
-        'title'=>$faker->sentence(7),
-        'description'=>$faker->sentence(15),
+        'title'=>$faker->sentence(3),
+        'description'=>$faker->sentence(8),
         'is_public'=>$faker->boolean(60),
     ];
 });

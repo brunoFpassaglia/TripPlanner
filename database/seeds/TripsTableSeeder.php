@@ -17,7 +17,5 @@ class TripsTableSeeder extends Seeder
         $trips->each(function (App\Trip $trip) use ($users) {
             $trip->users()->sync(array_slice($users, rand(0, count($users))));
         });
-
-
     }
 }

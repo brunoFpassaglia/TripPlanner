@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('trips', 'TripController');
+Route::get('personaltrips', 'TripController@personal')->name('trips.personal_trips');
 Route::resource('trips.posts', 'PostController');
 Route::resource('trips.posts.comments', 'CommentController');
 Route::get('users/{user}', 'UserController@show')->name('profile');

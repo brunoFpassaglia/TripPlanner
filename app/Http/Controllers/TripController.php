@@ -22,8 +22,19 @@ class TripController extends Controller
     public function index()
     {
         //
-        return view('trips.index', Trip::all());
+        $trips = Trip::publicTrips()->get();
+        return view('trips.index')->with('trips', $trips)->with('pagetitle', 'Public trips');
     }
+    
+    public function personal()
+    {
+        //
+        $trips = auth()->user()->trips;
+        // dd($trips);
+        return view('trips.index')->with('trips', $trips)->with('pagetitle', 'Personal trips');;
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
