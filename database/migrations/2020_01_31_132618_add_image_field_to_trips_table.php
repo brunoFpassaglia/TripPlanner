@@ -15,7 +15,7 @@ class AddImageFieldToTripsTable extends Migration
     {
         Schema::table('trips', function (Blueprint $table) {
             //
-            $table->string('image')->nullable();
+            $table->string('cover')->nullable();
         });
     }
 

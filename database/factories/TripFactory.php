@@ -4,9 +4,12 @@
 
 use App\Trip;
 use Faker\Generator as Faker;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 $factory->define(Trip::class, function (Faker $faker) {
     $users = App\User::all()->pluck('id')->toArray();
+    $covers = Storage::disk('public')->allFiles('tripcovers');
     return [
         //
         'begin_date' => $faker->dateTimeBetween('now', '+6 days'),
@@ -15,5 +18,6 @@ $factory->define(Trip::class, function (Faker $faker) {
         'title'=>$faker->sentence(3),
         'description'=>$faker->sentence(8),
         'is_public'=>$faker->boolean(60),
+        'cover'=>'/storage/'.Arr::random($covers),
     ];
 });
