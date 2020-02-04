@@ -1,6 +1,6 @@
 <a href="{{asset(Auth::user()->avatar) }}" target="_blank">
     <div class="avatar zoom">
-        <img src="{{ asset(Auth::user()->avatar) }}" alt="">
+        <img src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/storage/avatars/default.png')}}" alt="">
     </div>
 </a>
 <h6 class="">{{ Auth::user()->name }}</h6>

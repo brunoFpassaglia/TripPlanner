@@ -27,3 +27,5 @@ Route::resource('trips.posts.comments', 'CommentController');
 Route::get('users/{user}', 'UserController@show')->name('profile');
 Route::get('users/{user}/edit', 'UserController@edit')->middleware('editpage')->name('edit_profile');
 Route::put('users/{user}', 'UserController@update')->name('users.update');
+Route::post('trips/{trip}/jointrip', 'TripController@joinTrip')->name('trips.jointrip');
+Route::post('trips/{trip}/quittrip', 'TripController@quitTrip')->name('trips.quittrip');

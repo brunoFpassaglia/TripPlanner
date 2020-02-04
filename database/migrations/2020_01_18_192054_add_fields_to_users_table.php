@@ -16,7 +16,7 @@ class AddFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->string('bio', 60)->nullable();
-            $table->string('avatar')->default('avatar.jpg')->nullable();
+            $table->string('avatar')->nullable();
         });
     }
 

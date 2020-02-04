@@ -9,7 +9,7 @@
 </div> --}}
 
 <div class="card border-dark mb-4 zoom" style="width:360px">
-    <a href="{{asset(Auth::user()->avatar) }}" target="_blank">
+    <a href="{{ asset($trip->cover) }}" target="_blank">
         <img class="card-img-top" src="{{ asset($trip->cover) }}" alt="" style="width:100%">
     </a>
     <div class="card-body">

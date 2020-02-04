@@ -5,13 +5,17 @@
     <div class="card-header">
         <h5 class="card-title">
             {{ $trip->title}}
+            <a href="{{ asset($trip->cover) }}" target="_blank">
+                <img class="card-img-top" src="{{ asset($trip->cover) }}" alt="" style="width:100%">
+            </a>
         </h5>
-        {{ $trip->description }}
     </div>
-
+    
     <div class="card-body">
-        <div class="card">
-            @foreach ($trip->posts as $post)
+        
+        @if ((Auth::user()->trips->contains($trip)))
+        @foreach ($trip->posts as $post)
+        <div class="card my-2">
             <div class="card-header">
                 {{ $post->title }}
             </div>
@@ -28,27 +32,37 @@
                     <button type="submit" class="btn btn-secondary">Comment</button>
                 </form> --}}
             </div>
-            
-            @endforeach
         </div>
-    </div>
-</div>
-
-
-
-<div class="card my-3">
-    <div class="card-body">
-        <form action="{{ route('trips.posts.store', $trip) }}" method="POST">
+        @endforeach
+        <div class="card my-3">
+            <div class="card-body">
+                <form action="{{ route('trips.posts.store', $trip) }}" method="POST">
+                    @csrf
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Post title">
+                    <br>
+                    {{-- @trix(\App\Post::class, 'content', [ 'hideTools' => ['text-tools'] ])  --}}
+                    <input id="content" value="" type="hidden" name="content">
+                    <trix-editor input="content"></trix-editor>
+                    <button type="submit" class="btn btn-secondary">Post</button>
+                </form>
+            </div>
+        </div>
+        <form action="{{ route('trips.quittrip', $trip) }}" method="POST">
             @csrf
-            <input type="text" id="title" name="title" class="form-control" placeholder="Post title">
-            <br>
-            {{-- @trix(\App\Post::class, 'content', [ 'hideTools' => ['text-tools'] ])  --}}
-            <input id="content" value="" type="hidden" name="content">
-            <trix-editor input="content"></trix-editor>
-            <button type="submit" class="btn btn-secondary">Post</button>
+            <button class="btn btn-danger" type="submit">Quit this trip</button>
         </form>
+        @else
+        <form action="{{ route('trips.jointrip', $trip) }}" method="POST">
+            @csrf
+            <button class="btn btn-primary" type="submit">Join this trip</button>
+        </form>
+        @endif
     </div>
 </div>
+
+
+
+
 @endsection
 
 @section('scripts')
