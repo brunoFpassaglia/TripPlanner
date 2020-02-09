@@ -24,6 +24,11 @@
         
         <label for="end_date">End date</label>
         <input type="text" name="end_date" id="end_date" class="form-control">
+
+        <div class="input-group-sm">
+                <input type="radio" name="is_public" id="is_public"  value="1"> Public
+                <input type="radio" name="is_public" id="is_public" value="0"> Private
+        </div>
         <button type="submit" class="btn btn-success my-2">Create</button> 
     </form>
 </div>
@@ -39,6 +44,5 @@
     flatpickr("#begin_date", {});
     flatpickr("#end_date", {});
 </script>
-
 @endsection
 

@@ -11,7 +11,8 @@ class Trip extends Model
         'title',
         'description',
         'begin_date',
-        'end_date'
+        'end_date',
+        'is_public'
     ];
     
     

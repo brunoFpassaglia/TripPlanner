@@ -51,6 +51,19 @@
             @csrf
             <button class="btn btn-danger" type="submit">Quit this trip</button>
         </form>
+        
+        <a href="{{route('trips.participants.index', $trip) }}" class="btn btn-secondary">Check participants</a>
+        
+        <form action="{{--route('participants.search', $trip)--}}" method="GET">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="search" name="name" id="name" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-info">search</button>
+                </div>
+            </div>
+        </form>
         @else
         <form action="{{ route('trips.jointrip', $trip) }}" method="POST">
             @csrf

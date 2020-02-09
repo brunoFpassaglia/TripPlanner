@@ -56,7 +56,10 @@ class TripController extends Controller
     {
         //
         $data = $request->validated();
-        auth()->user()->ownsTrip()->create($data);
+        // auth()->user()->ownsTrip()->create($data);
+        $new_trip = auth()->user()->ownsTrip()->create($data);
+        auth()->user()->trips()->attach($new_trip, ['is_organizer'=>true]);
+        return redirect()->route('trips.show', $new_trip);
     }
     
     /**

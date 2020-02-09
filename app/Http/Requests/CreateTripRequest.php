@@ -29,6 +29,7 @@ class CreateTripRequest extends FormRequest
             'description'=>'required',
             'begin_date'=>'required',
             'end_date'=>'required',
+            'is_public'=>'required'
         ];
     }
 }
