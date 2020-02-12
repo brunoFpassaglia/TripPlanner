@@ -13,19 +13,25 @@ class ParticipantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Trip $trip)
+    public function index(Trip $trip, Request $request)
     {
         //
+        $search_result = isset($request->name) ? User::ofName($request->name)->get() : null;
         $participants = $trip->users;
-        return view('trips.participants.index')->with('participants', $participants);
-
+        return view('trips.participants.index',[
+            'participants'=>$participants,
+            'trip'=>$trip,
+            'search_result'=>$search_result]);
     }
 
+    /**
+     * Not being used
+     */
     public function search(Request $request){
-        $users = User::ofName($request->name)->get();
-        // dd($users);
-        return redirect()->back()->with('users', $users);
-   
+        // dd($request);
+        $search_result = User::ofName($request->name)->get();
+        // dd($search_result);
+        return redirect()->back()->with(['search_result'=>$search_result]);
     }
 
     /**
@@ -44,9 +50,12 @@ class ParticipantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Trip $trip, User $user)
     {
         //
+        $trip->users()->syncWithoutDetaching($user);
+        return redirect()->back();
+
     }
 
     /**

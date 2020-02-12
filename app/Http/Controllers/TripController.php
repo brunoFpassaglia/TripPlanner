@@ -111,7 +111,7 @@ class TripController extends Controller
     
     public function joinTrip(Trip $trip){
         
-        auth()->user()->trips()->sync($trip);
+        auth()->user()->trips()->syncWithoutDetaching($trip);
         return redirect()->route('trips.show', $trip);
     }
     
