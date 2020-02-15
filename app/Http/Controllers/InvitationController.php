@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Invitation;
+use App\Notifications\TripInvitation;
+use App\Trip;
+use App\User;
 use Illuminate\Http\Request;
 
 class InvitationController extends Controller
@@ -33,9 +36,13 @@ class InvitationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Trip $trip, User $user)
     {
-        //
+        $user->invitations()->create([
+            'trip_id'=>$trip->id,
+        ]);
+        session()->flash('success', $user->name.'has been invited to your trip');
+        $user->notify(new TripInvitation($trip));
     }
 
     /**

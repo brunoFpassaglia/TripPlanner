@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Trip;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,14 +12,17 @@ class TripInvitation extends Notification
 {
     use Queueable;
 
+    private $trip;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Trip $trip)
     {
         //
+        $this->trip = $trip;
     }
 
     /**
@@ -29,7 +33,7 @@ class TripInvitation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -41,9 +45,9 @@ class TripInvitation extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('You have been invited to join a trip. Check it out.')
+                    ->action('Notification Action', route('trips.show', $this->trip))
+                    ->line('Thank you for using Tripplanner!');
     }
 
     /**

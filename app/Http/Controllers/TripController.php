@@ -12,6 +12,7 @@ class TripController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('index');
+        $this->middleware('isTripOrganizer')->only('edit');
     }
     
     /**
@@ -83,6 +84,7 @@ class TripController extends Controller
     public function edit(Trip $trip)
     {
         //
+        return "edit page";
     }
     
     /**

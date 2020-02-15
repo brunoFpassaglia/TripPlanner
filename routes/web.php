@@ -31,5 +31,6 @@ Route::post('trips/{trip}/jointrip', 'TripController@joinTrip')->name('trips.joi
 Route::post('trips/{trip}/quittrip', 'TripController@quitTrip')->name('trips.quittrip');
 Route::post('trips/{trip}/participants/{user}/add', 'ParticipantsController@add')->name('trips.participants.add');
 Route::get('trips/{trip}/participants/search', 'ParticipantsController@search')->name('trips.participants.search');
+Route::resource('trips.invitations', 'InvitationController');
 Route::resource('trips.participants', 'ParticipantsController');
 // Route::get('trips/{trip}/participants', 'ParticipantsController@index')->name('trips.participants.index');

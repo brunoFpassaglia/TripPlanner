@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{-- <a href="{{route('trips.participants.search', $trip)}}">click me</a> --}}
+{{-- search for user form --}}
 <form action="{{route('trips.participants.index', $trip)}}" method="GET">
     <div class="row">
         <div class="col-md-10">
@@ -28,9 +28,9 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
-                <form action="{{ route('trips.participants.add', [$trip, $user]) }}" method="POST">
+                <form action="{{ $trip->is_public ? route('trips.participants.add', [$trip, $user]) : route('trips.invitations.store', [$trip, $user]) }}" method="POST">
                     @csrf
-                    <button class="btn btn-primary btn-sm">click me</button>
+                    <button class="btn btn-primary btn-sm">Add</button>
                 </form>
             </td>
         </tr>

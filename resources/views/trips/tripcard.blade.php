@@ -10,7 +10,7 @@
 
 <div class="card border-dark mb-4 zoom" style="width:360px">
     <a href="{{ asset($trip->cover) }}" target="_blank">
-        <img class="card-img-top" src="{{ asset($trip->cover) }}" alt="" style="width:100%">
+        <img class="card-img-top" src="{{ isset($trip->cover) ? asset($trip->cover) : asset('/storage/tripcovers/imageNotAvailable.png')}}" alt="" style="width:100%">
     </a>
     <div class="card-body">
         <strong class="d-inline-block mb-2 text-dark">{{ Str::limit($trip->title, 20) }}</strong>

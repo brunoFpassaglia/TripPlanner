@@ -4,7 +4,10 @@
 <div class="card">
     <div class="card-header">
         <h5 class="card-title">
-            {{ $trip->title}}
+            <div class="">
+				{{ $trip->title}}
+				<a href="{{ route('trips.edit', $trip) }}" class="btn btn-secondary btn-sm justify-content-end">Edit trip details</a>
+			</div>
             <a href="{{ asset($trip->cover) }}" target="_blank">
                 <img class="card-img-top" src="{{ asset($trip->cover) }}" alt="" style="width:100%">
             </a>

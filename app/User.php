@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function invitations(){
+        return $this->hasMany(Invitation::class);
+    }
+
     public function trips(){
         return $this->belongsToMany(Trip::class, 'trip_user', 'user_id', 'trip_id')->withTimestamps();
     }

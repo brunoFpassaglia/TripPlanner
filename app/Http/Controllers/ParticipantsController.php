@@ -54,6 +54,7 @@ class ParticipantsController extends Controller
     {
         //
         $trip->users()->syncWithoutDetaching($user);
+        session()->flash('success', $user->name.' was added to your trip!');
         return redirect()->back();
 
     }
