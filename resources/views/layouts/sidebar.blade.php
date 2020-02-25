@@ -12,7 +12,7 @@
     <div class="subnav-content">
         <a class="zoom" href="{{ route('trips.personal_trips') }}">Personal Trips</a>
         <a class="zoom" href="{{ route('trips.index') }}">Public Trips</a>
-        <a class="zoom" href="#package">Invitations</a>
+        <a class="zoom" href="{{ route('invitations') }}">Invitations</a>
     </div>
 </div>
 <a class="zoom" href="{{ route('profile', Auth::user()) }}">

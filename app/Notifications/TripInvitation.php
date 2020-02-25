@@ -33,7 +33,7 @@ class TripInvitation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -60,6 +60,7 @@ class TripInvitation extends Notification
     {
         return [
             //
+            'trip_id'=>$this->trip->id,
         ];
     }
 }

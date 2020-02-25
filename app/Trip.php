@@ -34,6 +34,10 @@ class Trip extends Model
         return $this->belongsToMany(User::class, 'trip_user', 'trip_id', 'user_id')->withTimestamps();
     }
 
+    public function invitations(){
+        return $this->hasMany(Invitation::class);
+    }
+
     /**
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder

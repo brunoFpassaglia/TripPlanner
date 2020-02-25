@@ -28,7 +28,7 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
-                <form action="{{ $trip->is_public ? route('trips.participants.add', [$trip, $user]) : route('trips.invitations.store', [$trip, $user]) }}" method="POST">
+                <form action="{{ $trip->is_public ? route('trips.participants.add', [$trip, $user]) : route('trips.invitations.add', [$trip, $user]) }}" method="POST">
                     @csrf
                     <button class="btn btn-primary btn-sm">Add</button>
                 </form>

@@ -18,6 +18,7 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/css/all.css') }}">
     
     {{-- custom scripts --}}
     
@@ -81,7 +82,7 @@
                 <div class="row">
                     @auth
                     <div class="col-md-2">
-                        <nav class="sidebar">
+                        <nav class="sidebar sticky-top sticky-bottom">
                             @include('layouts.sidebar')
                         </nav>
                     </div>
@@ -104,4 +105,20 @@
     </div>
     @yield('scripts')
 </body>
+{{-- 
+<footer class="footer-bs">
+    <div class="row">
+        <div class="col-md-6 footer-brand animated fadeInLeft">
+            <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="150" height="150"> 
+            <p>Tripplanner is a project first conceived to obtain the title of specialist in web app development</p>
+            <p>© Bruno Francisco Passaglia, All rights reserved</p>
+        </div>
+        <div class="col-md-6 footer-social animated fadeInDown">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+        </div>
+    </div>
+</footer>
+ --}}
 </html>
