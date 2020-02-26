@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="form-group col"> 
+        <div class="col"> 
             <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="300" height="300"> 
         </div> 
         

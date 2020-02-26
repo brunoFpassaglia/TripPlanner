@@ -24,7 +24,6 @@
     
 </head>
 <body>
-    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -78,18 +77,14 @@
         </nav>
         
         <main class="py-4">
-            <div class="container">
+            <div class="container" style="position: relative; min-height: 70vh;">
                 <div class="row">
                     @auth
                     <div class="col-md-2">
-                        <nav class="sidebar sticky-top sticky-bottom">
-                            @include('layouts.sidebar')
-                        </nav>
+                        @include('layouts.sidebar')
                     </div>
-                    <div class="col-md-1">
-                        
-                    </div>
-                    <div class="col-md-9">
+                    
+                    <div class="col-md-9 offset-md-1">
                         @include('layouts.errors')
                         @yield('content')
                     </div>
@@ -104,21 +99,31 @@
         </main>
     </div>
     @yield('scripts')
+    <footer class="footer-bs">
+        <div class="row">
+            <div class="col-md-2 footer-brand animated fadeInLeft">
+                <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="85" height="85"> 
+            </div>
+            <div class="col-md-6 footer-brand">
+                <p>Tripplanner is a project first conceived to obtain the title of specialist in web app development</p>
+                <p>© Bruno Francisco Passaglia, All rights reserved</p>
+            </div>
+            <div class="col-md-4 footer-social animated fadeInDown">
+                <ul>
+                    <li>
+                        <a href="#">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="#">LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="#">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
-{{-- 
-<footer class="footer-bs">
-    <div class="row">
-        <div class="col-md-6 footer-brand animated fadeInLeft">
-            <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="150" height="150"> 
-            <p>Tripplanner is a project first conceived to obtain the title of specialist in web app development</p>
-            <p>© Bruno Francisco Passaglia, All rights reserved</p>
-        </div>
-        <div class="col-md-6 footer-social animated fadeInDown">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-</footer>
- --}}
+
+
 </html>

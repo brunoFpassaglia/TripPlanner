@@ -1,24 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        <img src="{{ asset($user->avatar) }}" width="120px" height="90px" alt="">
-        {{ $user->name }}
-    </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        {{$user->bio }}
-        <div class="card-body">
+<div class="row justify-content-center">
+    <div class="col-md-8"> 
+        <img src="{{ isset($user->avatar) ? asset($user->avatar) : asset('/storage/avatars/default.png')}}" class="img-fluid float-left" alt="" srcset="" width="500" height="500"> 
+    </div> 
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>
+                    {{ $user->name }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <p>
+                    {{$user->bio }}
+                </p>
+                <p>
+                    <i class="fas fa-suitcase" title="Number of trips this user has joined"></i>
+                    {{$user->trips->count()}}
+                    <i class="fas fa-clipboard-list" title="Number of trips this user created"></i>
+                    {{$user->ownsTrip->count()}}
+                </p>
+                <p class="card-text"><small class="text-muted font-italic">{{ $user->email }}</small> </p>
+                <p class="card-text"><small class="text-muted">Member since {{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</small></p>
+            </div>
         </div>
     </div>
 </div>
-<div class="card">
-    my trips
-</div>
-@foreach ($user->trips as $trip)
-{{$trip->title}}
-<br>
-@endforeach
 @endsection

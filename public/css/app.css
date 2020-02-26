@@ -11362,8 +11362,9 @@ a.text-dark:focus {
   width: 200px;
   background-color: #f1f1f1;
   position: fixed;
-  height: 100%;
+  height: 70vh;
   overflow: auto;
+  border-radius: 10%;
 }
 
 .sidebar a {
@@ -11371,12 +11372,14 @@ a.text-dark:focus {
   color: black;
   padding: 16px;
   text-decoration: none;
+  scale: 95%;
 }
 .subnav a {
   display: block;
   color: black;
   padding: 16px;
   text-decoration: none;
+  scale: 95%;
 }
 
 
@@ -11407,6 +11410,7 @@ a.text-dark:focus {
 .subnav {
   /* float: left; */
   overflow: hidden;
+  scale: 95%;
 }
 
 /* Style the subnav content - positioned absolute */
@@ -11416,6 +11420,7 @@ a.text-dark:focus {
   left: 0;
   width: 100%;
   z-index: 1;
+  scale: 95%;
 }
 
 /* Style the subnav links */
@@ -11453,12 +11458,15 @@ trix-toolbar .trix-button--icon-attach {
 
 /* beautiful footer */
 .footer-bs {
+  height: 15vh;
+  bottom: 0;
   background-color: #3c3d41;
-padding: 10px 40px;
+padding: 5px 40px;
 color: rgba(255,255,255,1.00);
-margin-bottom: 20px;
+margin-bottom: 5px;
 border-bottom-right-radius: 6px;
 border-top-left-radius: 6px;
+border-top-right-radius: 6px;
 border-bottom-left-radius: 6px;
 }
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
@@ -11478,7 +11486,7 @@ margin-bottom:10px;
 }
 
 .footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
-.footer-bs .footer-nav ul.list li { padding:5px 0px;}
+.footer-bs .footer-nav ul.list li { padding:2px 0px;}
 .footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
 .footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
 
@@ -11488,8 +11496,8 @@ font-size: 11px;
 text-transform: uppercase;
 letter-spacing: 3px;
 }
-.footer-bs .footer-social li { padding:5px 4px;}
-.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
+.footer-bs .footer-social li { padding:1px 4px;}
+.footer-bs .footer-social a { color:rgba(255,255,255,1.00); font-size:12px}
 .footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
 
 .footer-bs .footer-ns h4 {
@@ -11499,3 +11507,4 @@ letter-spacing: 3px;
 margin-bottom:10px;
 }
 .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
+
