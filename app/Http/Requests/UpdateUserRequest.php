@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateTripRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,10 @@ class CreateTripRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'=>'required',
+            'avatar'=>'sometimes|mimes:jpeg,jpg,png',
+            'bio'=>'sometimes|max:60'
             //
-            'title'=>'required',
-            'description'=>'required',
-            'begin_date'=>'required',
-            'end_date'=>'required',
-            'is_public'=>'required',
-            'cover'=>'sometimes|mimes:jpeg,jpg,png'
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -69,13 +70,19 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         //
-        $data = $request->all();
+        if($request->has('avatar')){
+            $avatar = $request->file('avatar')->store('avatars');
+        }
+        else{
+            $avatar = null;
+        }
+        $data = array_merge($request->validated(), ['avatar'=>$avatar]);
         $update = $user->update($data);
         if($update){
-            return redirect()->route('home');
+            return redirect()->route('profile', $user);
         }
         else{
             return redirect()->route('users.edit', $user);
