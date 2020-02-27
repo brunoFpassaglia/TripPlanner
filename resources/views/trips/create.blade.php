@@ -7,7 +7,7 @@
         Create new trip
     </div>
     
-    <form action="{{ route('trips.store') }}" method="POST">
+    <form action="{{ route('trips.store') }}" method="POST" enctype="multipart/form-data">
         
         @csrf
         
@@ -16,19 +16,20 @@
         <label for="description">Trip description</label>
         <input type="text" name="description" id="description" class="form-control">
         
-        
-        
         <label for="begin_date">Begin date</label>
         <input type="text" name="begin_date" id="begin_date" class="form-control">
         
         
         <label for="end_date">End date</label>
         <input type="text" name="end_date" id="end_date" class="form-control">
-
+        
         <div class="input-group-sm">
-                <input type="radio" name="is_public" id="is_public"  value="1"> Public
-                <input type="radio" name="is_public" id="is_public" value="0"> Private
+            <input type="radio" name="is_public" id="is_public"  value="1"> Public
+            <input type="radio" name="is_public" id="is_public" value="0"> Private
         </div>
+        <label for="cover">Trip cover</label>
+        <input type="file" name="cover" id="cover">
+        
         <button type="submit" class="btn btn-success my-2">Create</button> 
     </form>
 </div>

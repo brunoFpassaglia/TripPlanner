@@ -11461,9 +11461,9 @@ trix-toolbar .trix-button--icon-attach {
   height: 15vh;
   bottom: 0;
   background-color: #3c3d41;
-padding: 5px 40px;
+padding: 2px 40px;
 color: rgba(255,255,255,1.00);
-margin-bottom: 5px;
+margin-bottom: 1px;
 border-bottom-right-radius: 6px;
 border-top-left-radius: 6px;
 border-top-right-radius: 6px;

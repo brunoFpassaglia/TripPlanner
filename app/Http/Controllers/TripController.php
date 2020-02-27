@@ -55,12 +55,21 @@ class TripController extends Controller
     */
     public function store(CreateTripRequest $request)
     {
-        //
-        $data = $request->validated();
+        
+        if($request->has('cover')){
+            $cover = $request->file('cover')->store('tripcovers');
+        }
+        else{
+            $cover = null;
+        }
+        // dd($cover);
+        $data = array_merge($request->validated(), ['cover'=>$cover]);
+        
         // auth()->user()->ownsTrip()->create($data);
         $new_trip = auth()->user()->ownsTrip()->create($data);
         auth()->user()->trips()->attach($new_trip, ['is_organizer'=>true]);
         return redirect()->route('trips.show', $new_trip);
+        // dd($request);
     }
     
     /**

@@ -8,8 +8,8 @@
 				{{ $trip->title}}
 				<a href="{{ route('trips.edit', $trip) }}" class="btn btn-secondary btn-sm justify-content-end">Edit trip details</a>
 			</div>
-            <a href="{{ asset($trip->cover) }}" target="_blank">
-                <img class="card-img-top" src="{{ asset($trip->cover) }}" alt="" style="width:100%">
+            <a href="/storage/{{$trip->cover}}" target="_blank">
+				<img class="card-img-top" src="/storage/{{$trip->cover}}" alt="" style="width:100%">
             </a>
         </h5>
     </div>
