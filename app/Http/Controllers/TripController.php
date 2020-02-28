@@ -132,6 +132,10 @@ class TripController extends Controller
     public function destroy(Trip $trip)
     {
         //
+        $trip->delete();
+        session()->flash('success', 'Trip deleted successfully');
+        return(redirect()->route('trips.personal_trips'));
+        
     }
     
     

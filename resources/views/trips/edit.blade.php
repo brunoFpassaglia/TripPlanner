@@ -32,6 +32,14 @@
         
         <button type="submit" class="btn btn-success my-2">Update</button> 
     </form>
+    <button onclick="deleteHandle({{$trip->id}})" class="btn btn-danger btn-sm" role="button" >
+        Delete Trip
+    </button>
+    <form action="{{ route('trips.destroy', $trip) }}" id="form-delete" method="POST">
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
+        @include('layouts.prompts')
+    </form>
 </div>
 
 

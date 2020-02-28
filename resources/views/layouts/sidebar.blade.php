@@ -13,7 +13,7 @@
         <div class="subnav-content">
             <a class="zoom" href="{{ route('trips.personal_trips') }}"><i class="fas fa-lock"></i> Personal Trips</a>
             <a class="zoom" href="{{ route('trips.index') }}"><i class="fas fa-lock-open"></i> Public Trips</a>
-            <a class="zoom" href="{{ route('invitations') }}"><i class="fas fa-envelope-open-text"></i> Invitations</a>
+            <a class="zoom" href="{{ route('invitations') }}"><i class="fas fa-envelope-open-text"></i> Invitations <span class="badge badge-light">{{Auth::user()->unreadNotifications->count()}}</span></a>
         </div>
     </div>
     <a class="zoom" href="{{ route('profile', Auth::user()) }}">

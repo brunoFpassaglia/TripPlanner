@@ -21,6 +21,7 @@ class InvitationController extends Controller
     {
         //
         $invitations = auth()->user()->invitations;
+        auth()->user()->unreadNotifications->markAsRead();
         return view('invitations.index', ['invitations'=>$invitations, 'pagetitle'=> 'Invitations']);
     }
     
