@@ -36,64 +36,57 @@ class CommentController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(StoreCommentRequest $request, $post)
+    public function store(StoreCommentRequest $request, Trip $trip, Post $post)
     {
         //
-        $data = $request->validated();
-        // dd($request['post']);
-         auth()->user()->comments()->create(
-             [
-                 'content' => $data['content'],
-                 'post_id' => $post,
-                 ]
-             );
-             return redirect(route('trips.show', Post::find($post)->trip));
-            
-        }
-        
-        /**
-        * Display the specified resource.
-        *
-        * @param  \App\Comment  $comment
-        * @return \Illuminate\Http\Response
-        */
-        public function show(Comment $comment)
-        {
-            //
-        }
-        
-        /**
-        * Show the form for editing the specified resource.
-        *
-        * @param  \App\Comment  $comment
-        * @return \Illuminate\Http\Response
-        */
-        public function edit(Comment $comment)
-        {
-            //
-        }
-        
-        /**
-        * Update the specified resource in storage.
-        *
-        * @param  \Illuminate\Http\Request  $request
-        * @param  \App\Comment  $comment
-        * @return \Illuminate\Http\Response
-        */
-        public function update(Request $request, Comment $comment)
-        {
-            //
-        }
-        
-        /**
-        * Remove the specified resource from storage.
-        *
-        * @param  \App\Comment  $comment
-        * @return \Illuminate\Http\Response
-        */
-        public function destroy(Comment $comment)
-        {
-            //
-        }
+        // dd($post);
+        $data = array_merge($request->validated(), ['post_id'=>$post->id]);
+        auth()->user()->comments()->create($data);
+        return redirect(route('trips.show', $trip));
     }
     
+    /**
+    * Display the specified resource.
+    *
+    * @param  \App\Comment  $comment
+    * @return \Illuminate\Http\Response
+    */
+    public function show(Comment $comment)
+    {
+        //
+    }
+    
+    /**
+    * Show the form for editing the specified resource.
+    *
+    * @param  \App\Comment  $comment
+    * @return \Illuminate\Http\Response
+    */
+    public function edit(Comment $comment)
+    {
+        //
+    }
+    
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \App\Comment  $comment
+    * @return \Illuminate\Http\Response
+    */
+    public function update(Request $request, Comment $comment)
+    {
+        //
+    }
+    
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  \App\Comment  $comment
+    * @return \Illuminate\Http\Response
+    */
+    public function destroy(Comment $comment)
+    {
+        //
+    }
+}

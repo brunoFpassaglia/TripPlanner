@@ -50,8 +50,6 @@ class PostController extends Controller
         );
         
         return redirect(route('trips.show', $trip));
-        
-        
     }
     
     /**
@@ -60,9 +58,10 @@ class PostController extends Controller
     * @param  \App\Post  $post
     * @return \Illuminate\Http\Response
     */
-    public function show(Post $post)
+    public function show(Trip $trip, Post $post)
     {
         //
+        return view('trips.posts.show', ['post'=>$post]);
     }
     
     /**

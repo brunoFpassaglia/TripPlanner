@@ -16,7 +16,7 @@
 
 {{-- Lists search result, to invite other users to trip --}}
 @if (isset($search_result))
-<table class="table table-hover">
+<table class="table table-hover my-2">
     <thead>
         <th>name</th>
         <th>E-mail</th>
@@ -40,7 +40,7 @@
 @endif
 
 {{-- Just list the current participants --}}
-<div class="card">
+<div class="card my-3">
     <div class="card-header">
         {{ $pagetitle ?? 'Participants'}}
     </div>

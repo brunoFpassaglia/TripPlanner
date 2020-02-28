@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTripRequest;
+use App\Http\Requests\UpdateTripRequest;
 use App\Trip;
 use Illuminate\Http\Request;
 
@@ -93,7 +94,7 @@ class TripController extends Controller
     public function edit(Trip $trip)
     {
         //
-        return "edit page";
+        return view('trips.edit')->with('trip', $trip);
     }
     
     /**
@@ -103,9 +104,23 @@ class TripController extends Controller
     * @param  \App\Trip  $trip
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, Trip $trip)
+    public function update(UpdateTripRequest $request, Trip $trip)
     {
         //
+        if($request->has('cover')){
+            $cover = $request->file('cover')->store('tripcovers');
+        }
+        else{
+            $cover = null;
+        }
+        $data = array_merge($request->validated(), ['cover'=>$cover]);
+        $update = $trip->update($data);
+        if($update){
+            return redirect()->route('trips.show', $trip);
+        }
+        else{
+            return redirect()->route('trips.edit', $trip);
+        }
     }
     
     /**

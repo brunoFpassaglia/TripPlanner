@@ -5293,6 +5293,16 @@ input[type=button].btn-block {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.card-header-custom {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.116);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
@@ -5303,9 +5313,17 @@ input[type=button].btn-block {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.068);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
+
+.card-footer-custom {
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.007);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
