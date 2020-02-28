@@ -20,10 +20,7 @@
         <i class="fas fa-user-shield"></i>
         My Page
     </a>
-    <a class="zoom" href="">
-        <i class="fas fa-key"></i>
-        Account
-    </a>
+    
     <a class="zoom" class="dropdown-item" href="{{ route('logout') }}"
     onclick="event.preventDefault();
     document.getElementById('logout-form').submit();">

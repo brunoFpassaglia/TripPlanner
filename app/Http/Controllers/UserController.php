@@ -63,6 +63,10 @@ class UserController extends Controller
         return view('users.edit')->with('user', $user);
     }
 
+    public function editAccount(User $user){
+        return view('users.editaccount')->with('user', $user);
+    }
+
     /**
      * Update the specified resource in storage.
      *

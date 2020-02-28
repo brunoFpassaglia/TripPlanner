@@ -111,13 +111,10 @@
             <div class="col-md-4 footer-social animated fadeInDown">
                 <ul>
                     <li>
-                        <a href="#">Instagram</a>
+                        <a href="https://br.linkedin.com/in/bruno-passaglia">LinkedIn</a>
                     </li>
                     <li>
-                        <a href="#">LinkedIn</a>
-                    </li>
-                    <li>
-                        <a href="#">GitHub</a>
+                        <a href="https://github.com/brunoFpassaglia">GitHub</a>
                     </li>
                 </ul>
             </div>
