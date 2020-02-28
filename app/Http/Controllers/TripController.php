@@ -138,6 +138,7 @@ class TripController extends Controller
     public function joinTrip(Trip $trip){
         
         auth()->user()->trips()->syncWithoutDetaching($trip);
+        auth()->user()->invitations()->where('trip_id', '=', $trip->id)->update(['accepted'=>true]);
         return redirect()->route('trips.show', $trip);
     }
     
@@ -145,6 +146,7 @@ class TripController extends Controller
     public function quitTrip(Trip $trip){
         
         auth()->user()->trips()->detach($trip);
+        auth()->user()->invitations()->where('trip_id', '=', $trip->id)->update(['accepted'=>false]);
         return redirect()->route('trips.show', $trip);
     }
 }

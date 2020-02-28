@@ -1,4 +1,4 @@
-<div class="card border-dark mb-4 zoom">
+<div class="card border-dark mb-4">
     <div class="card-header">
         someone invited you for a private trip.
     </div>

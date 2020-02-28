@@ -58,14 +58,14 @@ class InvitationController extends Controller
     */
     public function add(Trip $trip, User $user)
     {
-        if(Invitation::where([['trip_id', '=', $trip->id], ['user_id', '=', $user->id]])->count() == 0){
+        if(Invitation::where([['trip_id', '=', $trip->id], ['user_id', '=', $user->id]])->count() == 0 and !($user->trips->contains($trip))){
             Invitation::create(['trip_id'=>$trip->id, 'user_id'=>$user->id]);
             $user->notify(new TripInvitation($trip));
             session()->flash('success', $user->name.' has been invited to your trip.');
             return redirect()->back();
         }
         else{
-            session()->flash('warnings', 'User has already been invited.');
+            session()->flash('warnings', 'User has already been invited or hes has alrealdy joined.');
             return redirect()->back();
         }
     }
