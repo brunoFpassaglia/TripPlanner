@@ -18,6 +18,6 @@ $factory->define(Trip::class, function (Faker $faker) {
         'title'=>$faker->country(),
         'description'=>$faker->sentence(8),
         'is_public'=>$faker->boolean(60),
-        'cover'=>'/storage/'.Arr::random($covers),
+        'cover'=>Arr::random($covers),
     ];
 });
