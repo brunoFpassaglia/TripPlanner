@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-8"> 
-        <img src="{{ isset($user->avatar) ? '/storage/'.$user->avatar : asset('/storage/avatars/default.png')}}" class="img-fluid float-left" alt="" srcset="" width="500" height="500"> 
+        <img src="{{ isset($user->avatar) ? Storage::disk('s3')->url($user->avatar) : Storage::disk('s3')->url('avatars/default.png')}}" class="img-fluid float-left" alt="" srcset="" width="500" height="500"> 
     </div> 
     <div class="col-md-4">
         <div class="card">

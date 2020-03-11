@@ -49,7 +49,7 @@ return [
         ],
 
         'public' => [
-            'driver' => 'local',
+            'driver' => 's3',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
@@ -59,9 +59,10 @@ return [
             'driver' => 's3',
             'key' => 'AKIAIY322M6TBM56OKLQ',
             'secret' => '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',
-            'region' => 'sa-east-1',
-            'bucket' => 'tripplanner',
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => 'tcc-tripplanner',
             'url' => env('AWS_URL'),
+            'visibility' => 'public',
         ],
 
     ],

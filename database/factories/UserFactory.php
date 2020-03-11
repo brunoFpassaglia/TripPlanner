@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    $avatars = Storage::disk('public')->allFiles('avatars');
+    $avatars = Storage::disk('s3')->allFiles('avatars');
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,

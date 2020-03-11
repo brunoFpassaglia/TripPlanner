@@ -15,8 +15,8 @@
 			<div class="mb-1 text-muted small">{{$trip->begin_date}}</div>
 			<div class="mb-1 text-muted small">{{$trip->end_date}}</div>
 		</p>
-		<a href="/storage/{{$trip->cover}}" target="_blank">
-			<img class="card-img-top" src="/storage/{{$trip->cover}}" alt="" style="width:100%">
+		<a href="{{ Storage::disk('s3')->url($trip->cover)}} " target="_blank">
+			<img class="card-img-top" src="{{ Storage::disk('s3')->url($trip->cover) }}" alt="" style="width:100%">
 		</a>
 	</div>
 </div>

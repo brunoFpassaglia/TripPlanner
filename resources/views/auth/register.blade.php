@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="form-group col"> 
-            <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="300" height="300"> 
+            <img src="{{ Storage::disk('s3')->url('Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="300" height="300"> 
         </div> 
         <div class="col-md-8">
             <div class="card">

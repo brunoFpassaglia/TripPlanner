@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 $factory->define(Trip::class, function (Faker $faker) {
     $users = App\User::all()->pluck('id')->toArray();
-    $covers = Storage::disk('public')->allFiles('tripcovers');
+    $covers = Storage::disk('s3')->allFiles('tripcovers');
     return [
         //
         'begin_date' => $faker->dateTimeBetween('now', '+6 days'),

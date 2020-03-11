@@ -102,7 +102,7 @@
     <footer class="footer-bs">
         <div class="row">
             <div class="col-md-2 footer-brand animated fadeInLeft">
-                <img src="{{ asset('/storage/Logo.png') }}" class="img-fluid float-left" alt="" srcset="" width="85" height="85"> 
+                <img src="{{ Storage::disk('s3')->url('Logo.png') }} " class="img-fluid float-left" alt="" srcset="" width="85" height="85"> 
             </div>
             <div class="col-md-6 footer-brand">
                 <p>Tripplanner is a project first conceived to obtain the title of specialist in web app development</p>
