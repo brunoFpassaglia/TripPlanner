@@ -31,7 +31,7 @@
 			<div class="row no-gutters">
 				<div class="col-md-1">
 					<div class="avatar">
-						<img src="{{ isset($post->user->avatar) ? '/storage/'.$post->user->avatar : asset('/storage/avatars/default.png')}}" alt="" style="width:50px; height:50px">
+						<img src="{{ isset($post->user->avatar) ? Storage::disk('s3')->url($post->user->avatar) : Storage::disk('s3')->url('avatars/default.png') }}" alt="" style="width:50px; height:50px">
 					</div>
 				</div>
 				{{ $post->title }}
@@ -53,7 +53,7 @@
 					<div class="card-header-custom border-black">
 						<div class="col-md-1">
 							<div class="avatar">
-								<img src="{{ isset($comment->user->avatar) ? '/storage/'.$comment->user->avatar : asset('/storage/avatars/default.png')}}" alt="" style="width:50px; height:50px">
+								<img src="{{ isset($comment->user->avatar) ? Storage::disk('s3')->url($comment->user->avatar) :Storage::disk('s3')->url('/storage/avatars/default.png') }}" alt="" style="width:50px; height:50px">
 							</div>
 						</div>
 					</div>
